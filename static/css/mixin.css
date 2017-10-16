@@ -1,0 +1,44 @@
+ .line::before {
+  content: '';
+  border-left: 5px solid #f66;
+  position: relative;
+  /* left: -5px; */
+  height: 75%;
+  /* top: 12%; */
+ }
+ .block{
+   display: block
+ }
+ html,
+ body {
+   overflow: hidden;
+   margin: 0;
+   font-family: 'Open Sans', 'Helvetica Neue', 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
+   color: #333;
+ }
+ h1 {
+  position: relative;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 9px;
+  text-transform: uppercase;
+  margin: 10px 0;
+  left: 4px;
+  cursor: pointer;
+ }
+ a {
+  color: #999;
+  text-decoration: none;
+  transition: color .2s ease;
+  cursor: pointer
+}
+a:hover {
+ color: #f33;
+}
+p {
+ font-size: 14px;
+ line-height: 2em;
+ margin: 0;
+ letter-spacing: 2px;
+}
