@@ -19,7 +19,7 @@ export default {
 <style>
 .info {
   border-radius: 10px;
-  line-height: 20px;
+  line-height: 20px ;
   padding: 10px;
   margin: 10px;
   background-color: #ffffff;
