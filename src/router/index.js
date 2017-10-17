@@ -1,15 +1,13 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Rourer from 'vue-router'
+// import blog from './blog'
+Vue.use(Rourer)
 
-Vue.use(Router)
-
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Hello',
-      component: HelloWorld
-    }
-  ]
+export default new Rourer({
+ mode: 'history',
+ linkActiveClass: 'active',
+ routes: [
+  { path: '/life', component:_=> import( '../View/Life') },
+  {	path: '/', component:_=> import( '../View/Blog') },  
+ ]
 })

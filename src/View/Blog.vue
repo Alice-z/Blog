@@ -2,6 +2,7 @@
 	<div id="blog" style="height:100%">
 		<div class="info">
 			<h1 class="line"><router-link to="details"> This is My Bolg</router-link> </h1>
+			<pre class="brush:js;toolbar:false">destroyed()&nbsp;{&nbsp;this.editor.destroy()&nbsp;}</pre>
 			<p class="time mf">{{time}}</p>
 			<p class="intro mf"><a to="">this is my blog</a></p>
 		</div>

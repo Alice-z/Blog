@@ -12,6 +12,7 @@ const express = require('express')
 const webpack = require('webpack')
 const proxyMiddleware = require('http-proxy-middleware')
 const webpackConfig = require('./webpack.dev.conf')
+var bodyParser = require('body-parser')
 
 // default port where dev server listens for incoming traffic
 const port = process.env.PORT || config.dev.port
@@ -20,10 +21,14 @@ const autoOpenBrowser = !!config.dev.autoOpenBrowser
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
 const proxyTable = config.dev.proxyTable
-
+const router=require('./file')
 const app = express()
 const compiler = webpack(webpackConfig)
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
 
+// parse application/json
+app.use(bodyParser.json())
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
   quiet: true
@@ -42,6 +47,8 @@ const hotMiddleware = require('webpack-hot-middleware')(compiler, {
 //     cb()
 //   })
 // })
+
+app.use('/file',router)
 
 // enable hot-reload and state-preserving
 // compilation error display
@@ -90,7 +97,7 @@ devMiddleware.waitUntilValid(() => {
     console.log('> Listening at ' + uri + '\n')
     // when env is testing, don't need open it
     if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
-      opn(uri)
+      // opn(uri)
     }
     server = app.listen(port)
     _resolve()

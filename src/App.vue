@@ -5,7 +5,7 @@
         <img class="zoom" src="/static/img/lufei.jpg" width="100" height="100" style="border-radius: 50%">
         <h1 @click="TgBar">A l i c e</h1>
         <p><a @click="to('/')">Hmoe</a></p>
-        <p><a @click="to('/blog')">Blog</a></p>
+        <p><a @click="to('/')">Blog</a></p>
         <p><a @click="to('/life')">Life</a></p>
         <p><a>Design by myself</a></p>
       </div>
@@ -22,7 +22,7 @@ export default {
   data: _ => ({ width: '100%' }),
   methods: {
     TgBar() { this.width = this.width == '100%' ? '17%' : '100%'; this.$router.push('/') },
-    to(to) { this.width = '17%'; this.$router.push(to) }
+    to(to) { this.width = '17%'; this.$router.push(to) },
   },
   mounted: _ => {
     import('./util/canvas.js')
