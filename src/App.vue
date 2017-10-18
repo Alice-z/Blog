@@ -8,6 +8,7 @@
         <p><a @click="to('/')">Blog</a></p>
         <p><a @click="to('/life')">Life</a></p>
         <p><a>Design by myself</a></p>
+        <my/>
       </div>
     </div>
     <transition name="fade">
@@ -17,8 +18,12 @@
   </div>
 
 </template>
+
 <script>
+import my from './blog/myjs.vue'
+
 export default {
+  components:{my},
   data: _ => ({ width: '100%' }),
   methods: {
     TgBar() { this.width = this.width == '100%' ? '17%' : '100%'; this.$router.push('/') },
@@ -49,7 +54,7 @@ body,
   transition: all .5s 
 }
 #info{
-  padding: 50px 400px 20px 60px;
+  padding: 5rem 40rem 2rem 6rem;
   transition: all .5s 
 }
 .img{
@@ -59,7 +64,7 @@ body,
 .left {
   text-align: center;
   height: 100%;
-  margin: 250px auto;
+  margin: 25rem auto;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
