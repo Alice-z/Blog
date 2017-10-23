@@ -23,6 +23,23 @@ time, mark, audio, video, input {
     vertical-align: baseline;
 }
 
+html,body{ 
+    /* overflow: hidden; */
+    height: 100%;
+    margin: 0;
+    font-family: 'Open Sans', 'Helvetica Neue', 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
+    color: #333;
+  }
+  a {
+   color: #999;
+   text-decoration: none;
+   transition: color .2s ease;
+   cursor: pointer
+ }
+ a:hover {
+  color: #f33;
+ }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, menu, nav, section {
@@ -37,23 +54,12 @@ blockquote, q {
     quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: none;
-}
-
 table {
     border-collapse: collapse;
     border-spacing: 0;
 }
 
 /* custom */
-a {
-    color: #7e8c8d;
-    text-decoration: none;
-    -webkit-backface-visibility: hidden;
-}
-
 li {
     list-style: none;
 }
@@ -78,13 +84,4 @@ li {
     width: 5px;
     background-color: rgba(125, 125, 125, 0.7);
     -webkit-border-radius: 6px;
-}
-
-html, body {
-    width: 100%;
-}
-
-body {
-    -webkit-text-size-adjust: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }

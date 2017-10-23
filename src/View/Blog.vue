@@ -6,21 +6,20 @@
 			<p><router-link to="/">Hmoe</router-link></p>
 			<p><router-link to="/blog">Blog</router-link></p>
 			<p><router-link to="/life">Life</router-link></p>
-			<p><a>Design by myself</a></p>
+			<p><router-link to="/admin">Admin</router-link></p>
  		</div>
-		<router-view />
+		<router-view id="right" />
 	</div>
 </template>
 
 <script>
-
 export default {
 	data(){return {isshow:false }},
 	methods: { showBar() { this.isshow = !this.isshow } },
 	mounted() {
 		screen.availWidth < 700 ? 
-		Zoomerang.config({maxHeight: 300, maxWidth: 100, bgColor: '#000', bgOpacity: .85, onBeforeOpen: this.showBar, onClose: this.showBar	}).listen('.zoom') : 
-		''
+		Zoomerang.config({maxHeight: 300, maxWidth: 100, bgColor: '#000', bgOpacity: .85, onBeforeOpen: this.showBar, onClose: this.showBar	})
+		.listen('.zoom') : ''
 	}
 }
 </script>
@@ -46,8 +45,17 @@ export default {
 		height: 6rem
 	}
 }
+#right {
+  margin-left: 30rem;
+  padding-top: 4rem;
+}
 
 @media screen and (max-width: 700px) {
+		#right {
+		padding-bottom: 1rem;
+		margin-left: 0;
+		padding-top: 5.5rem
+  }
 	.sliderbar {
 		height: 20rem!important;
 		padding-top: .5rem!important;

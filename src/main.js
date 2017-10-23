@@ -6,12 +6,8 @@ import router from './router.js'
 import mixin from './mixins'
 Vue.config.productionTip =  false
 import './mixins/rem'
-import '../static/ueditor/ueditor.config.js' 
-import '../static/ueditor/ueditor.all.min.js'
-import '../static/ueditor/lang/zh-cn/zh-cn.js'
-import '../static/ueditor/ueditor.parse.min.js'
 
-SyntaxHighlighter.all()
+
 
 Vue.mixin(mixin)
  

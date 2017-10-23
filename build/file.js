@@ -4,11 +4,12 @@ var colors=require('colors')
 var express = require('express');
 var router = express.Router()
 var _path = path.join(__dirname, '..', 'src/')
+var time = require('../src/mixins/filter')
 
 router.post('/creat', (req, res) => {
-  var { title, info } = req.body
+  var { title, info ,sort } = req.body
 
-  var newPage = JSON.stringify({ info, title ,time})
+  var newPage = JSON.stringify({ info, title ,time,sort})
 
   var allPage = fs.readFileSync(_path + 'blog/article_data.js').toString()
 
@@ -30,26 +31,12 @@ router.post('/creat', (req, res) => {
   res.send({ msg: 'succ' })
 }) 
 
-router.post('/upload',(re,rq)=>{
-  console.log('upload');
+router.post('/remove',(re,rq)=>{
+  let info ='export default '+JSON.stringify(re.body)
+
+  fs.writeFile(_path + 'blog/article_data.js', info, err => !err && console.log('> RemoveBlog is successfully'.green))
 })
 
-Date.prototype.Format = function (fmt) {
-  var o = {
-    "M+": this.getMonth() + 1, //月份 
-    "d+": this.getDate(), //日 
-    "h+": this.getHours(), //小时 
-    "m+": this.getMinutes(), //分 
-    "s+": this.getSeconds(), //秒 
-    "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
-    "S": this.getMilliseconds() //毫秒 
-  };
-  if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-  for (var k in o)
-    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-  return fmt;
-}
-var time=()=> new Date().Format("yyyy-MM-dd");
 // function content(info){
 //   return `<template>
 //   <div class="info">

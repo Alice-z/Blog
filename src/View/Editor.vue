@@ -1,36 +1,54 @@
 <template>
   <div id="life">
-    <label for="title">标题</label>
-    <input type="text" v-model="title" id="title">
-    <script id="ue" type="text/plain"></script>
-    <button @click="createBlog" class="btn" style="float:right;margin-right:3rem">发布文章</button>    
+    <label for="title">标题:</label>
+    <input class="ipt" type="text" v-model="title" id="title">
+    <label for="title">分类:</label>
+    <input class="ipt" type="text" v-model="sort" id="sort">
+    <div id="edit">  
+      <script id="ue" type="text/plain" />
+      <input @click="createBlog" class="btn" type="button" value="发表文章" style="float:right;margin-right:3rem">
+    </div>
   </div>
 </template>
 
 <script>
+import '../../static/ueditor/ueditor.config.js' 
+import '../../static/ueditor/ueditor.all.min.js'
+import '../../static/ueditor/lang/zh-cn/zh-cn.js'
+import '../../static/ueditor/ueditor.parse.min.js'
 export default {
-  data: _ => ({ editor: null, title: '', info: '' }),
+  data: _ => ({ editor: null, title: '', info: '',sort:'' }),
   methods: {
     createBlog() {
       this.info = this.editor.getContent()
-      this.fetch('/file/creat', { title: this.title, info: this.info },'post').then(r=>console.log(r))
+      let {title,info,sort}=this
+      this.fetch('/file/creat', { title,info,sort },'post')
+      .then(r=>this.$router.push('/'))
     },
   },
-  mounted() { this.editor = UE.getEditor('ue', { initialFrameWidth: null, initialFrameHeight: 350 }) },
+  mounted() { 
+    this.editor = UE.getEditor('ue', { initialFrameWidth: null, initialFrameHeight: 750 }) 
+    },
   destroyed() { this.editor.destroy() }
 }
 </script>
 
-<style>
-.info {
-  border-radius: 1rem;
-  line-height: 2rem;
-  padding: 1rem;
-  margin: 1rem;
-  background-color: #ffffff;
+<style scoped>
+@media screen and (max-width:700px) {
+  #edit{
+    width: 100%
+  }
+}
+  #edit{
+    width: 80%
+  }
+
+input{
+  margin:1rem 2rem
 }
 #life{
   overflow: scroll;
+  padding: 3rem 10rem;
 }
 </style>
 

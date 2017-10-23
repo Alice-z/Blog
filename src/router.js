@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Rourer from 'vue-router'
-// import blog from './blog'
 Vue.use(Rourer)
 
 export default new Rourer({
@@ -8,10 +7,10 @@ export default new Rourer({
   linkActiveClass: 'active',
   routes: [
     { path: '/', component: _ => import('./components/navbar') },
-    { path: '/life', component: _ => import('./View/Editor') },
-    {
-      path: '/blog', component: _ => import('./View/Blog'), children: [
+    {path: '/blog', component: _ => import('./View/Blog'), children: [
         { path: '/', component: _ => import('./blog/article_list') },
+        { path: '/life', component: _ => import('./View/Editor') },
+        { path: '/admin', component: _ => import('./View/Admin') },        
         { path: '/article',name:'article', component: _ => import('./blog/article_info') }
       ]
     },

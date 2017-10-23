@@ -1,7 +1,5 @@
 <template>
-  <div>
     <script id="ue" type="text/plain"></script>
-  </div>
 </template>
 <script>
 export default {
