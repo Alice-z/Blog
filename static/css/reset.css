@@ -37,7 +37,7 @@ html,body{
    cursor: pointer
  }
  a:hover {
-  color: #f33;
+  color: #f33!important;
  }
 
 /* HTML5 display-role reset for older browsers */

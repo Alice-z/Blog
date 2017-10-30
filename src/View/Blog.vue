@@ -9,70 +9,99 @@
 			<p><router-link to="/admin">Admin</router-link></p>
  		</div>
 		<router-view id="right" />
-	</div>
+		<canvas />    
+  </div>
 </template>
 
 <script>
 export default {
-	data(){return {isshow:false }},
-	methods: { showBar() { this.isshow = !this.isshow } },
-	mounted() {
-		screen.availWidth < 700 ? 
-		Zoomerang.config({maxHeight: 300, maxWidth: 100, bgColor: '#000', bgOpacity: .85, onBeforeOpen: this.showBar, onClose: this.showBar	})
-		.listen('.zoom') : ''
-	}
+  data() {
+    return {
+      isshow: false,
+      data: []
+    };
+  },
+  methods: {
+    showBar() {
+      this.isshow = !this.isshow;
+    }
+  },
+  mounted() {
+    import ('../util/canvas.js')
+    screen.availWidth < 700 && Zoomerang.config({
+      maxHeight: 300,
+      maxWidth: 100,
+      bgColor: "#000",
+      bgOpacity: 0.85,
+      onBeforeOpen: this.showBar,
+      onClose: this.showBar
+    }).listen(".zoom")
+    var date = new Date().toLocaleDateString().replace(/\//g,'-')
+
+    console.log(date)
+
+    // console.log(date.toLocaleString());
+    // console.log(date.toLocaleTimeString());
+    // console.log(date.toTimeString());
+  }
 }
+
 </script>
 
 <style lang='less' scoped>
 .sliderbar {
-	text-align: center;
-	position: fixed;
-	height: 100%;
-	width: 25rem;
-	padding-top: 25rem;
-	border-right: 0.1rem solid #ccc;
-	margin: auto 0;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
-	overflow: hidden;
-	img {
-		background: url('/static/img/bar.jpg') no-repeat;
-		background-size: 100% 100%;
-		border-radius: 50%;
-		width: 6rem;
-		height: 6rem
-	}
+  text-align: center;
+  position: fixed;
+  height: 100%;
+  width: 25rem;
+  padding-top: 25rem;
+  border-right: 0.1rem solid #ccc;
+  margin: auto 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  overflow: hidden;
+  img {
+    background: url("/static/img/bar.jpg") no-repeat;
+    background-size: 100% 100%;
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+  }
 }
 #right {
-  margin-left: 30rem;
+  margin-left: 35rem;
+  margin-right: 15rem;
   padding-top: 4rem;
 }
 
 @media screen and (max-width: 700px) {
-		#right {
-		padding-bottom: 1rem;
-		margin-left: 0;
-		padding-top: 5.5rem
+  #right {
+    padding-bottom: 1rem;
+    margin: 0;
+    padding: 6.5rem 2rem 1rem;
+	}
+	.tag{
+		display: none
+	}
+  .sliderbar {
+    height: 20rem !important;
+    padding-top: 0.5rem !important;
+    border: none !important;
+    right: 0;
   }
-	.sliderbar {
-		height: 20rem!important;
-		padding-top: .5rem!important;
-		border: none!important;
-		right: 0;
-	}
-	.a {
-		width: 15rem!important;
-		height: 18rem!important;
-		margin-top: -20rem!important;
-		margin-left: -8rem!important;
-		transform: scale(0)
-	}
-	.b {
-		width: 6rem!important;
-		height: 6rem!important;
-		transform: scale(.7)
-	}
+  .a {
+    width: 15rem !important;
+    height: 18rem !important;
+    margin-top: -20rem !important;
+    margin-left: -8rem !important;
+    transform: scale(0);
+  }
+  .b {
+    width: 6rem !important;
+    height: 6rem !important;
+    transform: scale(0.7);
+  }
 }
+
 </style>

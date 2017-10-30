@@ -13,17 +13,17 @@
 
 <script>
 import '../../static/ueditor/ueditor.config.js' 
-import '../../static/ueditor/ueditor.all.min.js'
+import '../../static/ueditor/ueditor.all.js'
 import '../../static/ueditor/lang/zh-cn/zh-cn.js'
 import '../../static/ueditor/ueditor.parse.min.js'
 export default {
   data: _ => ({ editor: null, title: '', info: '',sort:'' }),
   methods: {
-    createBlog() {
+    async  createBlog() {
       this.info = this.editor.getContent()
       let {title,info,sort}=this
-      this.fetch('/file/creat', { title,info,sort },'post')
-      .then(r=>this.$router.push('/'))
+      await this.fetch('/blog-file/creat', { title,info,sort },'post')
+      this.$router.push('/blog')
     },
   },
   mounted() { 
@@ -40,14 +40,15 @@ export default {
   }
 }
   #edit{
-    width: 80%
+    width: 80%;
+    overflow: auto;
   }
 
 input{
   margin:1rem 2rem
 }
 #life{
-  overflow: scroll;
+  overflow: auto;
   padding: 3rem 10rem;
 }
 </style>

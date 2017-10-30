@@ -1,10 +1,10 @@
 const baseUrl = ''
 
-export default async (url='', data={}, type = 'GET', method = 'fetch') => {
+export default async (url='', data={}, type = 'GET', ) => {
 
   ({ type, url } = option(type, url, data))
 
-  if (window.fetch && method == 'fetch') {
+  if (window.fetch ) {
     let requestConfig = {
       credentials: 'include',
       method: type,

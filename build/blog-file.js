@@ -4,7 +4,7 @@ var colors=require('colors')
 var express = require('express');
 var router = express.Router()
 var _path = path.join(__dirname, '..', 'src/')
-var time = require('../src/mixins/filter')
+var time = new Date().toLocaleDateString().replace(/\//g,'-')
 
 router.post('/creat', (req, res) => {
   var { title, info ,sort } = req.body
@@ -32,36 +32,12 @@ router.post('/creat', (req, res) => {
 }) 
 
 router.post('/remove',(re,rq)=>{
+
   let info ='export default '+JSON.stringify(re.body)
 
   fs.writeFile(_path + 'blog/article_data.js', info, err => !err && console.log('> RemoveBlog is successfully'.green))
+
 })
 
-// function content(info){
-//   return `<template>
-//   <div class="info">
-//   ${info}
-//   </div>
-//   </template>
-  
-//   <script>
-//   import {nowTime} from '../mixins/filter'
-//   export default {
-//   data:_=>({time:nowTime()})
-//   }
-//   </script>
-  
-//   <style lang='less' scoped>
-  
-//   .info {
-//   padding-bottom: 10px;
-//   border-bottom: 2px solid #ccc
-//   }
-//   .mf{
-//   margin-left: 30px;
-//   }
-//   </style>
-//   `
-// }
 
 module.exports = router;

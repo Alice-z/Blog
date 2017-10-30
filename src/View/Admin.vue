@@ -18,8 +18,7 @@ data(){
 methods:{
   remove(k){
     this.list.splice(k,1)
-    // console.log(typeof JSON.stringify(this.list));
-    this.fetch('/file/remove',this.list,'post').then(r=>console.log('succ'))
+    this.fetch('/blog-file/remove',this.list,'post').then(r=>console.log('succ'))
   }
 }
 }
@@ -36,12 +35,21 @@ h1{
 button{
   float: right;
   position: relative;
-  top: -1rem
+  vertical-align: middle;
+  top: -0.3rem
 }
 .row{
   margin-bottom: 2rem;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 1rem;
+  border: 1px solid #d1dbe5;
+  border-radius: 4px;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
+  height: 2rem;
+  line-height: 2rem;
+  padding: 1rem;
   width: 50%
+
 }
+
 </style>

@@ -1,23 +1,23 @@
 <template>
   <div id="app" >
     <router-view />
-    <canvas />
   </div>
 </template>
 
 <script>
 export default {
-  mounted: _ => import('./util/canvas.js'),
 
 }
-
+ 
 </script>
 
 <style>
 @import url('/static/css/mixin.css');
 @import url('/static/css/reset.css');
+@import url('/static/css/animate.css');
 #app{
   overflow: hidden;
+  /* height: 100%; */
 }
 canvas {
   position: fixed;

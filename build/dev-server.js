@@ -12,8 +12,9 @@ const express = require('express')
 const webpack = require('webpack')
 const proxyMiddleware = require('http-proxy-middleware')
 const webpackConfig = require('./webpack.dev.conf')
-var bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 
+ 
 // default port where dev server listens for incoming traffic
 const port = process.env.PORT || config.dev.port
 // automatically open browser, if not set will be false
@@ -21,12 +22,12 @@ const autoOpenBrowser = !!config.dev.autoOpenBrowser
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
 const proxyTable = config.dev.proxyTable
-const router=require('./file')
+const router=require('./blog-file')
 const app = express()
 const compiler = webpack(webpackConfig)
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 // parse application/json
 app.use(bodyParser.json())
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
@@ -48,7 +49,7 @@ const hotMiddleware = require('webpack-hot-middleware')(compiler, {
 //   })
 // })
 
-app.use('/file',router)
+app.use('/blog-file',router)
 
 // enable hot-reload and state-preserving
 // compilation error display
