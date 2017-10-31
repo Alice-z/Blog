@@ -34,17 +34,17 @@ import data from "./Article_data.js";
 export default {
   data() {
     return {
-      data
+      data:null
     }
+  },
+  async created(){
+    let r=await this.fetch('/blog_db/find')
+    this.data=process.env.NODE_ENV=='development1'?r.doc: data
   },
   methods: {
     push(page) {
-      this.$router.push({
-        name: "article",
-        query: {
-          page
-        }
-      });
+      this.$router.push({ name: "article", query: {  page  }
+      })
     },
     init() {
       this.data = data

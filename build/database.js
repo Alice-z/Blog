@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
-var db=mongoose.connect('mongodb://localhost:27017/test93');
+mongoose.connect('mongodb://localhost:27017/test',{useMongoClient:true})
+mongoose.Promise = global.Promise; 
 // 文章
 var articleSchema = new mongoose.Schema({
   info: String,
@@ -12,9 +13,5 @@ var articleSchema = new mongoose.Schema({
   }
 });
 
-
-db.on('open',(err)=>{
-  console.log('连接数据库成功');
-})
 
 module.exports = mongoose.model('Article', articleSchema)

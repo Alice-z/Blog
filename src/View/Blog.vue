@@ -36,15 +36,10 @@ export default {
       onBeforeOpen: this.showBar,
       onClose: this.showBar
     }).listen(".zoom")
-    var date = new Date().toLocaleDateString().replace(/\//g,'-')
-
-    console.log(date)
-
-    // console.log(date.toLocaleString());
-    // console.log(date.toLocaleTimeString());
-    // console.log(date.toTimeString());
+    this.fetch('/blog_db/find').then(r => console.log(r))
   }
 }
+
 
 </script>
 
