@@ -8,6 +8,6 @@ export default {
     }
   },
   methods: {
-    fetch
+    fetch,time:filter.time
   }
 }

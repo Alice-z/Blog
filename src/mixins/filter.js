@@ -1,2 +1,2 @@
 
-export const time= new Date().toLocaleDateString().replace(/\//g,'-')
+export const time=r=> new Date(parseInt(r)).toLocaleDateString().replace(/\//g,'-')

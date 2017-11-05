@@ -22,7 +22,6 @@ const autoOpenBrowser = !!config.dev.autoOpenBrowser
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
 const proxyTable = config.dev.proxyTable
-const router=require('./blog-file')
 const db=require('./blog-db')
 const app = express()
 const compiler = webpack(webpackConfig)
@@ -50,8 +49,7 @@ const hotMiddleware = require('webpack-hot-middleware')(compiler, {
 //   })
 // })
 
-app.use('/blog-file',router)
-app.use('/blog_db',db)
+app.use('/blog',db)
 
 // enable hot-reload and state-preserving
 // compilation error display

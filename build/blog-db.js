@@ -12,14 +12,14 @@ db.post('/save', (req, res, next) => {
   )}
 )
 db.get('/find', (req, res, next) => {
-  var  title=req.query.title
-  title?
-  Article.find({title}, (err, doc) => resInfo(res, doc)):
+  var  {_id}=req.query
+  _id?
+  Article.findOne({_id}, (err, doc) => resInfo(res, doc)):
   Article.find({}, (err, doc) => resInfo(res, doc))
 
 })
-db.post('/remove',(req,res,next)=>{
-  var _id=req.body
+db.get('/remove',(req,res,next)=>{
+  var {_id}=req.query
   Article.remove({_id},(err,doc)=>resInfo(res) )
 })
 

@@ -9,45 +9,35 @@
 </template>
 
 <script>
-
-import list from '../blog/Article_data'
+import list from '@db/result.json'
 export default {
-data(){
-  return{list:null}
-},
-created(){
-    console.log(this.isDev);
-  
-  this.fetch('/blog_db/find').then(r=>{
-    this.list=r.doc||list
-  })
-},
-methods:{
-  remove(_id,k){
-    this.fetch('/blog_db/remove',{_id},'post' )
-    this.list.splice(k,1)
-    // this.isDev?
-    // this.fetch('/blog-file/remove',this.list,'post')
+  data() {
+    return { list }
+  },
+  methods: {
+    remove(_id, k) {
+      this.fetch("/blog/remove", { _id })
+      this.list.splice(k, 1);
+    }
   }
-}
-}
+};
 </script>
 
 <style scoped>
-span{
+span {
   color: #999;
   font-size: 1.5rem;
 }
-h1{
-  margin-bottom: 2rem
+h1 {
+  margin-bottom: 2rem;
 }
-button{
+button {
   float: right;
   position: relative;
   vertical-align: middle;
-  top: -0.3rem
+  top: -0.3rem;
 }
-.row{
+.row {
   margin-bottom: 2rem;
   border: 1px solid #d1dbe5;
   border-radius: 4px;
@@ -57,8 +47,6 @@ button{
   height: 2rem;
   line-height: 2rem;
   padding: 1rem;
-  width: 50%
-
+  width: 50%;
 }
-
 </style>

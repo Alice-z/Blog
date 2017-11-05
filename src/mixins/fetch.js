@@ -1,6 +1,6 @@
 const baseUrl = ''
 
-export default async (url='', data={}, type = 'GET', ) => {
+export default async (url='', data={}, type = 'GET' ) => {
 
   ({ type, url } = option(type, url, data))
 

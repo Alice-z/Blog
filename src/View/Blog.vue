@@ -1,13 +1,25 @@
 <template>
 	<div id="blog" style="height:100%">
-		<div  :class="isshow?'a':'b'" class="zoom sliderbar">
-			<img src="/static/img/lufei.jpg">
-			<h1>Alice</h1>
-			<p><router-link to="/">Hmoe</router-link></p>
-			<p><router-link to="/blog">Blog</router-link></p>
-			<p><router-link to="/life">Life</router-link></p>
-			<p><router-link to="/admin">Admin</router-link></p>
- 		</div>
+		<img src="/static/img/lufei.jpg" @click="showBar" class="img">
+    <transition name="zoom-in-top">
+      <div v-if="isshow" class="model" @click="showBar">
+      <div class="nav">
+        <h1>Alice</h1>
+        <p><router-link to="/">Hmoe</router-link></p>
+        <p><router-link to="/blog">Blog</router-link></p>
+        <p><router-link to="/life">Life</router-link></p>
+        <p><router-link to="/admin">Admin</router-link></p>
+      </div>
+      </div>
+    </transition>
+    <div class="sliderbar">
+        <img src="/static/img/lufei.jpg" >
+        <h1>Alice</h1>
+        <p><router-link to="/">Hmoe</router-link></p>
+        <p><router-link to="/blog">Blog</router-link></p>
+        <p><router-link to="/life">Life</router-link></p>
+        <p><router-link to="/admin">Admin</router-link></p>
+    </div>
 		<router-view id="right" />
 		<canvas />    
   </div>
@@ -16,10 +28,7 @@
 <script>
 export default {
   data() {
-    return {
-      isshow: false,
-      data: []
-    };
+    return { isshow: false };
   },
   methods: {
     showBar() {
@@ -27,22 +36,20 @@ export default {
     }
   },
   mounted() {
-    import ('../util/canvas.js')
-    screen.availWidth < 700 && Zoomerang.config({
-      maxHeight: 300,
-      maxWidth: 100,
-      bgColor: "#000",
-      bgOpacity: 0.85,
-      onBeforeOpen: this.showBar,
-      onClose: this.showBar
-    }).listen(".zoom")
+    import("../util/canvas.js");
   }
-}
-
-
+};
 </script>
 
 <style lang='less' scoped>
+img {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+}
+.img {
+  display: none;
+}
 .sliderbar {
   text-align: center;
   position: fixed;
@@ -55,13 +62,20 @@ export default {
   -moz-user-select: none;
   user-select: none;
   overflow: hidden;
-  img {
-    background: url("/static/img/bar.jpg") no-repeat;
-    background-size: 100% 100%;
-    border-radius: 50%;
-    width: 6rem;
-    height: 6rem;
-  }
+}
+.nav {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 6rem;
+}
+.model {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
 }
 #right {
   margin-left: 35rem;
@@ -74,28 +88,16 @@ export default {
     padding-bottom: 1rem;
     margin: 0;
     padding: 6.5rem 2rem 1rem;
-	}
-	.tag{
-		display: none
-	}
-  .sliderbar {
-    height: 20rem !important;
-    padding-top: 0.5rem !important;
-    border: none !important;
-    right: 0;
   }
-  .a {
-    width: 15rem !important;
-    height: 18rem !important;
-    margin-top: -20rem !important;
-    margin-left: -8rem !important;
-    transform: scale(0);
+  .tag {
+    display: none;
   }
-  .b {
-    width: 6rem !important;
-    height: 6rem !important;
-    transform: scale(0.7);
+  .img {
+    float: left;
+    position: relative;
+    top: 0.2rem;
+    left: 40%;
+    display: block;
   }
 }
-
 </style>

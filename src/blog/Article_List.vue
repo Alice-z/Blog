@@ -1,10 +1,10 @@
 <template>
   <div >
-    <ul v-for="(i,k) in data" class="info jello">
+    <ul v-for="(i,k) in list" class="info jello">
       <li class="line">
-        <a v-html="i.title" @click="push(k) " />
+        <a v-html="i.title" @click="push(i._id) " />
         <p>
-          <a v-html="i.time" />
+          <a v-html="time(i.time) " />
           <a style="margin-left:2rem">分类：{{i.sort}} </a>
         </p>
       </li>
@@ -29,42 +29,33 @@
 
   
 <script>
-import data from "./Article_data.js";
+import list from "@db/result.json";
 
 export default {
   data() {
-    return {
-      data:null
-    }
-  },
-  async created(){
-    let {doc}=await this.fetch('/blog_db/find')
-    this.data=process.env.NODE_ENV=='development'?doc: data
+    return { list };
   },
   methods: {
-    push(page) {
-      this.$router.push({ name: "article", query: {  page  }
-      })
+    push(_id) {
+      this.$router.push({ name: "article", query: { _id } });
     },
     init() {
-      this.data = data
+      this.list = list;
     },
     toTag(tag) {
-      this.data = data.filter(r => r.sort == tag)
+      this.list = list.filter(r => r.sort == tag);
     }
   }
-}
-
-
+};
 </script>
 
 <style lang="less" scoped>
 @media screen and (max-width: 700px) {
-  .info{
-    width: 75%!important ;
-    margin: 0 auto
+  .info {
+    width: 75% !important;
+    margin: 0 auto;
   }
-  .tag{
+  .tag {
     display: none;
   }
 }
@@ -79,8 +70,8 @@ export default {
   background-color: #fff;
   overflow: hidden;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
-  &:hover{
-   animation:jello 2s infinite alternate
+  &:hover {
+    animation: jello 2s infinite alternate;
   }
 }
 .fr {
@@ -91,7 +82,7 @@ export default {
     font-size: 1.5rem;
     letter-spacing: 0.2rem;
     color: #000;
-    line-height: 2rem
+    line-height: 2rem;
   }
   p {
     margin-top: 2rem;
@@ -112,26 +103,26 @@ export default {
 }
 
 .tag {
-	width: 20rem;
-	height: 30rem;
-	position: fixed;
-	right: 5rem;
-	top: 5rem;
+  width: 20rem;
+  height: 30rem;
+  position: fixed;
+  right: 5rem;
+  top: 5rem;
   padding: 2rem;
   .border;
-  &:hover{
+  &:hover {
     animation: swing 3s infinite alternate;
   }
-  p{
+  p {
     font-size: 1.5rem;
     letter-spacing: 0.2rem;
     color: #000;
-    line-height: 2rem
+    line-height: 2rem;
   }
-	span{
-		.border;
-		font-size: 1rem;
-		padding: .1rem .5rem
-	}
+  span {
+    .border;
+    font-size: 1rem;
+    padding: 0.1rem 0.5rem;
+  }
 }
 </style>

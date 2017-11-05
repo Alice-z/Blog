@@ -12,43 +12,53 @@
 </template>
 
 <script>
-import '../../static/ueditor/ueditor.config.js' 
-import '../../static/ueditor/ueditor.all.js'
-import '../../static/ueditor/lang/zh-cn/zh-cn.js'
-import '../../static/ueditor/ueditor.parse.min.js'
+import "../../static/ueditor/ueditor.config.js";
+import "../../static/ueditor/ueditor.all.js";
+import "../../static/ueditor/lang/zh-cn/zh-cn.js";
+import "../../static/ueditor/ueditor.parse.min.js";
 export default {
-  data: _ => ({ editor: null, title: '', info: '',sort:'' }),
+  data: _ => ({
+    editor: null,
+    title: "",
+    info: "",
+    sort: ""
+  }),
   methods: {
-    async  createBlog() {
-      this.info = this.editor.getContent()
-      let {title,info,sort}=this
-      this.fetch('/blog_file/creat', { title,info,sort },'post')//prod
-      this.fetch('/blog_db/save', { title,info,sort },'post')//dev
-      this.$router.push('/blog')
-    },
+    createBlog() {
+      this.info = this.editor.getContent();
+      let { title, info, sort } = this;
+      this.fetch("/blog/save", { title, info, sort }, "post"); //dev
+      this.$router.push("/blog");
+    }
   },
-  mounted() { 
-    this.editor = UE.getEditor('ue', { initialFrameWidth: null, initialFrameHeight: 750 }) 
-    },
-  destroyed() { this.editor.destroy() }
-}
+  mounted() {
+    this.editor = UE.getEditor("ue", {
+      initialFrameWidth: null,
+      initialFrameHeight: 750
+    });
+    console.log(this.$route);
+  },
+  destroyed() {
+    this.editor.destroy();
+  }
+};
 </script>
 
 <style scoped>
-@media screen and (max-width:700px) {
-  #edit{
-    width: 100%
+@media screen and (max-width: 700px) {
+  #edit {
+    width: 100%;
   }
 }
-  #edit{
-    width: 80%;
-    overflow: auto;
-  }
+#edit {
+  width: 80%;
+  overflow: auto;
+}
 
-input{
-  margin:1rem 2rem
+input {
+  margin: 1rem 2rem;
 }
-#life{
+#life {
   overflow: auto;
   padding: 3rem 10rem;
 }

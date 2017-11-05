@@ -1,20 +1,17 @@
 <template>
   <div  id="page" >
-    <h1 v-html="title"></h1>
-    <div v-html="info"></div>
+    <h1 v-html="search('title')"></h1>
+    <div v-html="search('info')"></div>
     <a class="top" href="#" >顶部</a href="#">
   </div>
 </template>
 
 <script>
-import data from './Article_data'
+import list from '@db/result.json'
 export default {
-  computed:{
-    title(){
-      return data[this.$route.query.page].title
-    },
-    info(){
-      return  data[this.$route.query.page].info
+  methods:{
+    search(item){
+      return list.filter(r=>r._id==this.$route.query._id)[0][item]
     }
   }
 }
