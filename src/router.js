@@ -2,9 +2,8 @@ import Vue from 'vue'
 import Rourer from 'vue-router'
 import isDev from './mixins/dev'
 Vue.use(Rourer)
-console.log(isDev);
 export default new Rourer({
-  mode: 'history',
+  // mode: 'history',
   linkActiveClass: 'active',
   routes: [{
       path: '/',
