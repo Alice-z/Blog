@@ -89,6 +89,9 @@ img {
     margin: 0;
     padding: 6.5rem 2rem 1rem;
   }
+  .sliderbar{
+    display: none
+  }
   .tag {
     display: none;
   }
