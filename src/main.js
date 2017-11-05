@@ -8,7 +8,7 @@ Vue.config.productionTip =  false
 import './mixins/rem'
 
 
-
+ 
 Vue.mixin(mixin)
  
 /* eslint-disable no-new */

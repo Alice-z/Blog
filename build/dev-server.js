@@ -5,7 +5,7 @@ const config = require('../config')
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
 }
-
+const watch=require('./watch')
 const opn = require('opn')
 const path = require('path')
 const express = require('express')
@@ -102,6 +102,7 @@ devMiddleware.waitUntilValid(() => {
     }
     server = app.listen(port)
     _resolve()
+    watch()
   })
 })
 
