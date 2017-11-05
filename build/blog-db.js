@@ -18,6 +18,10 @@ db.get('/find', (req, res, next) => {
   Article.find({}, (err, doc) => resInfo(res, doc))
 
 })
+db.post('/remove',(req,res,next)=>{
+  var _id=req.body
+  Article.remove({_id},(err,doc)=>resInfo(res) )
+})
 
 
 module.exports = db

@@ -38,8 +38,8 @@ export default {
     }
   },
   async created(){
-    let r=await this.fetch('/blog_db/find')
-    this.data=process.env.NODE_ENV=='development1'?r.doc: data
+    let {doc}=await this.fetch('/blog_db/find')
+    this.data=process.env.NODE_ENV=='development'?doc: data
   },
   methods: {
     push(page) {

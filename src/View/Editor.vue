@@ -22,7 +22,7 @@ export default {
     async  createBlog() {
       this.info = this.editor.getContent()
       let {title,info,sort}=this
-      this.fetch('/blog_file/save', { title,info,sort },'post')//prod
+      this.fetch('/blog_file/creat', { title,info,sort },'post')//prod
       this.fetch('/blog_db/save', { title,info,sort },'post')//dev
       this.$router.push('/blog')
     },

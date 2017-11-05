@@ -36,7 +36,6 @@ export default {
       onBeforeOpen: this.showBar,
       onClose: this.showBar
     }).listen(".zoom")
-    this.fetch('/blog_db/find').then(r => console.log(r))
   }
 }
 

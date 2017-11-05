@@ -18,16 +18,6 @@ router.post('/creat', (req, res) => {
   console.log('[Alice] Starting writeFile..'.yellow + '\n')
 
   fs.writeFile(_path + 'blog/article_data.js', _allPage, err => !err && console.log('> WriteBlog is successfully'.green))
-
-  // var blogMap = fs.readFileSync(_path + 'router/blog.js').toString()
-
-  // console.log('> Read BlogMap is successfully'.green + '\n')
-
-  // var newBlogMap = blogMap.substring(0, blogMap.length - 1) + `,{	path: '/', component:_=> import('../blog/${title}') }\n]`
-
-  // fs.writeFileSync(_path + 'router/blog.js', newBlogMap)
-
-  // console.log('> Write BlogMap is successfully'.green + '\n')
   res.send({ msg: 'succ' })
 }) 
 

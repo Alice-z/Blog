@@ -3,7 +3,7 @@
     <h1>文章管理页面 </h1>
     <div v-for="(i,k) in list " class="row">
       <span v-html="i.title"></span>
-      <button class="btn" @click="remove(k)">删除</button>
+      <button class="btn" @click="remove(i._id,k)">删除</button>
     </div>
   </div>
 </template>
@@ -13,12 +13,21 @@
 import list from '../blog/Article_data'
 export default {
 data(){
-  return{list}
+  return{list:null}
+},
+created(){
+    console.log(this.isDev);
+  
+  this.fetch('/blog_db/find').then(r=>{
+    this.list=r.doc||list
+  })
 },
 methods:{
-  remove(k){
+  remove(_id,k){
+    this.fetch('/blog_db/remove',{_id},'post' )
     this.list.splice(k,1)
-    this.fetch('/blog-file/remove',this.list,'post').then(r=>console.log('succ'))
+    // this.isDev?
+    // this.fetch('/blog-file/remove',this.list,'post')
   }
 }
 }
