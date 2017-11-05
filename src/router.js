@@ -23,7 +23,8 @@ export default new Rourer({
         },
         {
           path: '/admin',
-          component: _ =>import ('./View/Admin')        },
+          component: _ =>isDev?import ('./View/Admin'):import('@c/404.vue')       
+         },
         {
           path: '/article',
           name: 'article',
