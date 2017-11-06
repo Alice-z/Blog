@@ -81,7 +81,7 @@ img {
   margin-left: 35rem;
   margin-right: 15rem;
   padding-top: 4rem;
-}
+}   
 
 @media screen and (max-width: 700px) {
   #right {

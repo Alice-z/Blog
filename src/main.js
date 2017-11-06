@@ -6,8 +6,8 @@ import router from './router.js'
 import mixin from './mixins'
 Vue.config.productionTip =  false
 import './mixins/rem'
-
-
+    
+ 
  
 Vue.mixin(mixin)
  

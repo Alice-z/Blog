@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/test',{useMongoClient:true})
+mongoose.connect('mongodb://localhost:27017/blog',{useMongoClient:true})
 mongoose.Promise = global.Promise; 
 // 文章
 var articleSchema = new mongoose.Schema({

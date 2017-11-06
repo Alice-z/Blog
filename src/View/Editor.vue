@@ -36,7 +36,6 @@ export default {
       initialFrameWidth: null,
       initialFrameHeight: 750
     });
-    console.log(this.$route);
   },
   destroyed() {
     this.editor.destroy();

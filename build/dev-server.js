@@ -102,7 +102,7 @@ devMiddleware.waitUntilValid(() => {
     }
     server = app.listen(port)
     _resolve()
-    watch()
+    // watch()
   })
 })
 
