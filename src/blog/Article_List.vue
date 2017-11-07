@@ -35,9 +35,6 @@ export default {
   data() {
     return { list};
   },
-  created(){
-    console.log(list);
-  },
   methods: {
     push(_id) {
       this.$router.push({ name: "article", query: { _id } });
