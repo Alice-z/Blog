@@ -18,12 +18,16 @@ export default new Rourer({
           component: _ =>import ('./blog/article_list')
         },
         {
-          path: '/life',
-          component: _ =>isDev?import ('./View/Editor'):import('@c/404.vue') ,      
-        },
-        {
           path: '/admin',
           component: _ =>isDev?import ('./View/Admin'):import('@c/404.vue')       
+         },
+        {
+          path: '/edit',
+          component: _ =>isDev?import ('./View/edit'):import('@c/404.vue')       
+         },
+        {
+          path: '/update',
+          component: _ =>isDev?import ('./View/update'):import('@c/404.vue')       
          },
         {
           path: '/article',

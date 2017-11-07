@@ -4,11 +4,12 @@ import Vue from 'vue'
 import App from './App.vue' 
 import router from './router.js'
 import mixin from './mixins'
-Vue.config.productionTip =  false
 import './mixins/rem'
-    
- 
- 
+
+Vue.config.productionTip =  false
+
+
+
 Vue.mixin(mixin)
  
 /* eslint-disable no-new */

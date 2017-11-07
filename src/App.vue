@@ -15,6 +15,7 @@ export default {
 @import url('/static/css/mixin.css');
 @import url('/static/css/reset.css');
 @import url('/static/css/animate.css');
+@import url('/static/css/font.css');
 #app{
   overflow: hidden;
   /* height: 100%; */

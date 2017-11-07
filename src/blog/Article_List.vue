@@ -33,7 +33,10 @@ import list from "@db/result.json";
 
 export default {
   data() {
-    return { list };
+    return { list};
+  },
+  created(){
+    console.log(list);
   },
   methods: {
     push(_id) {

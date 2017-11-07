@@ -7,8 +7,9 @@
         <h1>Alice</h1>
         <p><router-link to="/">Hmoe</router-link></p>
         <p><router-link to="/blog">Blog</router-link></p>
-        <p><router-link to="/life">Life</router-link></p>
+        <p><router-link to="/edit">edit</router-link></p>
         <p><router-link to="/admin">Admin</router-link></p>
+        <p><router-link to="/eee">eee</router-link></p>
       </div>
       </div>
     </transition>
@@ -17,7 +18,7 @@
         <h1>Alice</h1>
         <p><router-link to="/">Hmoe</router-link></p>
         <p><router-link to="/blog">Blog</router-link></p>
-        <p><router-link to="/life">Life</router-link></p>
+        <p><router-link to="/edit">edit</router-link></p>
         <p><router-link to="/admin">Admin</router-link></p>
     </div>
 		<router-view id="right" />
