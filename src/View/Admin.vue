@@ -4,6 +4,7 @@
     <div v-for="(i,k) in list " class="row">
       <span v-html="i.title"></span>
       <button class="btn" @click="remove(i._id,k)">删除</button>
+      <button class="btn" @click="update(k)">修改</button>
     </div>
   </div>
 </template>
@@ -18,6 +19,9 @@ export default {
     remove(_id, k) {
       this.fetch("/blog/remove", { _id })
       this.list.splice(k, 1);
+    },
+    update(k){
+      this.$router.push({path:'update',query:{index:k}})
     }
   }
 };

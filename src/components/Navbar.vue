@@ -4,7 +4,7 @@
    <h1 >Alice</h1>
     <p class="tag">Design by My self</p>   
     <p><router-link to="/blog">Blog</router-link></p>
-    <p><router-link to="/life">Life</router-link></p>
+    <p><router-link to="/edit">edit</router-link></p>
  </div> 
 </template>
 

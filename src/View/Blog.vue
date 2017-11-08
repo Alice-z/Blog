@@ -9,7 +9,7 @@
         <p><router-link to="/blog">Blog</router-link></p>
         <p><router-link to="/edit">edit</router-link></p>
         <p><router-link to="/admin">Admin</router-link></p>
-        <p><router-link to="/eee">eee</router-link></p>
+        <p><router-link to="/update">update</router-link></p>
       </div>
       </div>
     </transition>
