@@ -70,7 +70,10 @@ app.use(require('connect-history-api-fallback')())
 // serve webpack bundle output
 app.use(devMiddleware)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> baaa968d1435ecfac6de52908a4b11a5108b96e7
 
 // serve pure static assets
 const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
