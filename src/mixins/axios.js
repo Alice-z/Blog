@@ -1,7 +1,12 @@
 import axios from 'axios'
 
 let basUrl = ''
-
+/**
+ * 
+ * @param {string} url 请求的路径  
+ * @param {object} data  请求的参数
+ * @param {string} method  请求的类型
+ */
 export default async function (url, data, method = 'GET') {
 
   try {

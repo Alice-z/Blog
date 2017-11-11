@@ -29,7 +29,7 @@ export default {
       this.info = this.quill.container.firstChild.innerHTML;
       let { title, info, sort } = this;
       await this.fetch("/blog/save", { title, info, sort }, "POST"); //dev
-      this.$router.push("/blog"); /* */
+      this.$router.push("/home"); /* */
     }
   },
   mounted() {
@@ -72,3 +72,13 @@ export default {
   }
 };
 </script>
+
+<style>
+#img{
+  background: url('/static/img/lufei.jpg');
+  display: block;
+  width: 20px;height: 20px;
+
+}
+</style>
+

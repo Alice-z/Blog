@@ -1,12 +1,12 @@
 <template>
-	<div id="blog" style="height:100%">
+	<div id="home" style="height:100%">
 		<img src="/static/img/lufei.jpg" @click="showBar" class="img">
     <transition name="zoom-in-top">
       <div v-if="isshow" class="model" @click="showBar">
       <div class="nav">
         <h1>Alice</h1>
         <p><router-link to="/">Hmoe</router-link></p>
-        <p><router-link to="/blog">Blog</router-link></p>
+        <p><router-link to="/home">home</router-link></p>
         <p><router-link to="/edit">edit</router-link></p>
         <p><router-link to="/admin">Admin</router-link></p>
         <p><router-link to="/update">update</router-link></p>
@@ -17,11 +17,13 @@
         <img src="/static/img/lufei.jpg" >
         <h1>Alice</h1>
         <p><router-link to="/">Hmoe</router-link></p>
-        <p><router-link to="/blog">Blog</router-link></p>
+        <p><router-link to="/home">home</router-link></p>
         <p><router-link to="/edit">edit</router-link></p>
         <p><router-link to="/admin">Admin</router-link></p>
     </div>
-		<router-view id="right" />
+    <transition name="fade">
+		  <router-view id="right" />
+    </transition>
 		<canvas />    
   </div>
 </template>
@@ -82,7 +84,7 @@ img {
   margin-left: 35rem;
   margin-right: 15rem;
   padding-top: 4rem;
-}   
+}
 
 @media screen and (max-width: 700px) {
   #right {
@@ -90,8 +92,8 @@ img {
     margin: 0;
     padding: 6.5rem 2rem 1rem;
   }
-  .sliderbar{
-    display: none
+  .sliderbar {
+    display: none;
   }
   .tag {
     display: none;

@@ -10,8 +10,8 @@ export default new Rourer({
       component: _ =>import ('./components/navbar')
     },
     {
-      path: '/blog',
-      component: _ =>import ('./View/Blog'),
+      path: '/home',
+      component: _ =>import ('./View/home'),
       children: [{
           path: '/',
           name: 'list',

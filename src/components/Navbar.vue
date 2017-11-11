@@ -2,8 +2,8 @@
  <div class="nav">
    <img  src="/static/img/lufei.jpg" >
    <h1 >Alice</h1>
-    <p class="tag">Design by My self</p>   
-    <p><router-link to="/blog">Blog</router-link></p>
+    <p class="tag">A Salted fish Designer </p>   
+    <p><router-link to="/home">home</router-link></p>
     <p><router-link to="/edit">edit</router-link></p>
  </div> 
 </template>
@@ -12,7 +12,7 @@
 export default { 
 
  
-}
+} 
 </script>
 
 <style scoped>

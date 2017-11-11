@@ -1,6 +1,6 @@
 <template>
   <div id="app" >
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -19,6 +19,7 @@ export default {
   overflow: hidden;
   /* height: 100%; */
 }
+
 canvas {
   position: fixed;
   top: 0;

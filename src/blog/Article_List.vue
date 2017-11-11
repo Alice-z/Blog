@@ -9,6 +9,7 @@
         </p>
       </li>
     </ul>
+    <div> <a v-for="i in len" @click="nowList(i-1)">{{i}} </a> </div>
     <div class="tag swing">
       <p>分类</p>
       <span @click="init">
@@ -33,7 +34,7 @@ import list from "@db/result.json";
 
 export default {
   data() {
-    return { list};
+    return { list ,len:list.length };
   },
   methods: {
     push(_id) {
@@ -44,6 +45,10 @@ export default {
     },
     toTag(tag) {
       this.list = list.filter(r => r.sort == tag);
+    },
+    nowList(k){
+      this.list=this.paging(list,k)
+      console.log(this.list);
     }
   }
 };

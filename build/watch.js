@@ -8,13 +8,13 @@ var pathList = []
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-
+// fileDisplay()
 
 /** 
  * 文件遍历方法 
  * @param filePath 需要遍历的文件路径 
  */
-function fileDisplay(filePath=resolve('src')) {
+function fileDisplay(filePath) {
 	//监听目标文件夹
 	watch(filePath)
 	//根据文件路径读取文件，返回文件列表  

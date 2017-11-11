@@ -1,13 +1,21 @@
 import fetch from './axios'
 import * as filter from './filter'
 import isDev from './dev'
-export default {
-  data(){
-    return{
+
+
+
+ 
+const mixin = {
+  data() {
+    return {
       isDev
     }
   },
-  methods: {
-    fetch,time:filter.time
-  }
+  methods: { fetch }
 }
+
+for(let i in filter){
+  mixin.methods[i] = filter[i]
+}
+
+export default mixin
