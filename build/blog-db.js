@@ -29,7 +29,11 @@ db.get('/find', (req, res, next) => {
 })
 db.get('/remove', (req, res, next) => {
   var { _id } = req.query
-  Article.remove({ _id }, (err, doc) => devData(()=> resInfo(res)))
+  Article.remove({ _id }, (err, doc) => 
+  err?
+  resInfo(res,err):
+  devData(()=> resInfo(res))
+  )
 })
 
 

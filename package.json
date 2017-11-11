@@ -6,7 +6,7 @@
   "private": true,
   "main": "build/dev-server.js",
   "scripts": {
-    "dev": "node build/dev-server.js",
+    "dev": "node build/dev-server.js&mongod ",
     "start": "npm run dev",
     "build": "node build/build.js"
   },
